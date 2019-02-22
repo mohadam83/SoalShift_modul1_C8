@@ -3,13 +3,13 @@
 /#!/bin/bash
 
 /#xdg-open "nature&
-unzip /home/adam/Downloads/nature.zip -d /home/adam/Downloads --> syntax ini berfungsi untuk mengekstrak file yang bertipe zip
+unzip /home/adam/SoalShift_modul1_C8/nature.zip -d /home/adam/Downloads --> syntax ini berfungsi untuk mengekstrak file yang bertipe zip
 
 a=1
-for x in /home/adam/Downloads/nature/*.jpg
+for x in /home/adam/SoalShift_modul1_C8/nature/*.jpg
 do
-`base64 -d $x > /home/adam/Downloads/nature/$a.jpg`
-`xxd -r /home/adam/Downloads/nature/$a.jpg > /home/adam/Downloads/picture$a.jpg`
+`base64 -d $x > /home/adam/SoalShift_modul1_C8/nature/$a.jpg`
+`xxd -r /home/adam/SoalShift_modul1_C8/nature/$a.jpg > /home/adam/SoalShift_modul1_C8/picture$a.jpg`
 a=`expr $a + 1`
 done
 
