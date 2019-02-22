@@ -15,6 +15,9 @@ done
 
 syntax di atas adalah proses perulangan, yang mana syntax di atas akan mengecek semua file bertipe .jpg kemudian karena file tersebut tidak bisa dibuka karena di enkripsi maka harus dilakukan proses dengan menggunakan syntax base64, tetapi hal itu belum cukup karena file masih belum bisa terbuka karena konfigurasi file tersebut ketika di cek melalui hexdump masih ada yang salah sehingga perlu dilakukan proses invers sehingga pada akhirnya file tersebut bisa terbuka.
 
+14 14 14 2 5 /bin/bash /home/adam/SoalShift_modul1_C8/Nomer 1.sh
+
+
 # Soal No. 2
 ## 2a
 BEGIN{
@@ -190,6 +193,8 @@ printf '%s\n' "$var" > "$fname".txt --> mencetak isi variabel var dan disimpan k
 
 Syntax di atas untuk proses encode
 
+0 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/nomer 4.sh
+
 #!/bin/bash
 
 convert() {
@@ -226,8 +231,8 @@ cara :
 
     1. Buat script dengan extention .sh
     2. Buatlah script yang akan menjalankan command awk yang dimana script tersebut mengizinkan string ‘cron’ yang tidak case sensitive '(/cron/ || /CRON/) , tidak mengandung string sudo (!/sudo/) dan jumlah field yang tidak lebih dari 13 (NF < 13).
-    3. Setelah itu simpanlah file syslog tersebut kedalam folder yang diinginkan. Contoh : perintah >> /home/salsha/sisop/no5.log
-    4. Buat cron job dengan perintah crontab -e dan aturlah waktunya seperti berikut : s2-30/6 * * * * /bin/bash /home/salsha/sisop/no5.sh
+    3. Setelah itu simpanlah file syslog tersebut kedalam folder yang diinginkan. Contoh : perintah >> /home/adam/SoalShift_modul1_C8/no5.log
+    4. Buat cron job dengan perintah crontab -e dan aturlah waktunya seperti berikut : s2-30/6 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/no5.sh
 
 
 
