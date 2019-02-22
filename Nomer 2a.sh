@@ -34,5 +34,6 @@ END{
    }
    print negara;
 }
+#awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv
 
 #awk -F ',' -f 1_2a.awk WA_Sales_Products_2012-14.csv
