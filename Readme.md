@@ -220,7 +220,7 @@ perbedaan antara encode dan decode hanya terletak pada syntax else yaitu menukar
 # Soal No. 5
 Script :
 
-awk '(/cron/ || /CRON/) && (!/sudo/) && (NF < 13) {print}' /var/log/syslog >> /home/salsha/sisop/no5.log
+awk '(/cron/ || /CRON/) && (!/sudo/) && (NF < 13) {print}' /var/log/syslog >> /home/adam/SoalShift_modul1_C8/no5.log
 
 cara :
 
