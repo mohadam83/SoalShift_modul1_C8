@@ -251,15 +251,18 @@ perbedaan antara encode dan decode hanya terletak pada syntax else yaitu menukar
 Script :
 
 ```
-awk '(/cron/ || /CRON/) && (!/sudo/) && (NF < 13) {print}' /var/log/syslog >> /home/adam/SoalShift_modul1_C8/no5.log
+awk '(tolower($0) ~ /cron/) && (tolower($0) !~ /sudo/) && (NF < 13) {print}' /var/log/syslog >> /home/adam/SoalShift_modul1_C8/no5.log
 ```
 
 cara :
 
     1. Buat script dengan extention .sh
-    2. Buatlah script yang akan menjalankan command awk yang dimana script tersebut mengizinkan string ‘cron’ yang tidak case sensitive '(/cron/ || /CRON/) , tidak mengandung string sudo (!/sudo/) dan jumlah field yang tidak lebih dari 13 (NF < 13).
+    2. Buatlah script yang akan menjalankan command awk yang dimana script tersebut mengizinkan string ‘cron’ yang tidak case sensitive '(tolower($0) ~ /cron/) , tidak mengandung string sudo (tolower($0) !~ /sudo/) dan jumlah field yang tidak lebih dari 13 (NF < 13).
     3. Setelah itu simpanlah file syslog tersebut kedalam folder yang diinginkan. Contoh : perintah >> /home/adam/SoalShift_modul1_C8/no5.log
     4. Buat cron job dengan perintah crontab -e dan aturlah waktunya seperti berikut : s2-30/6 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/no5.sh
+
+Kendala yang dialami yaitu terletak pada nomer 5, awalnya kami hanya menduga jika yg bentuk lain dari cron karena case sensitive hanya CRON, seharusnya ada kemungkinan lain seperti crON, CRon dan lain sebagainya. Sehingga kami menambahkan syntax ```tolower($0) ~``` agar bisa mendeteksi semua kemungkinan penulisan cron yang dianggap sama sesuai pengertian case sensitive.
+
 
 
 
