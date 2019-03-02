@@ -1,9 +1,11 @@
 # Nomor 1
 
-/#!/bin/bash
+```/#!/bin/bash
 
 /#xdg-open "nature&
-unzip /home/adam/SoalShift_modul1_C8/nature.zip -d /home/adam/Downloads --> syntax ini berfungsi untuk mengekstrak file yang bertipe zip
+unzip /home/adam/SoalShift_modul1_C8/nature.zip -d /home/adam/Downloads```
+
+Syntax di atas berfungsi untuk mengekstrak file yang bertipe zip
 
 a=1
 for x in /home/adam/SoalShift_modul1_C8/nature/*.jpg
