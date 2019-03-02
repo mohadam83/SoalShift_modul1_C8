@@ -18,13 +18,18 @@ a=`expr $a + 1`
 done
 ```
 
-syntax di atas adalah proses perulangan, yang mana syntax di atas akan mengecek semua file bertipe .jpg kemudian karena file tersebut tidak bisa dibuka karena di enkripsi maka harus dilakukan proses dengan menggunakan syntax base64, tetapi hal itu belum cukup karena file masih belum bisa terbuka karena konfigurasi file tersebut ketika di cek melalui hexdump masih ada yang salah sehingga perlu dilakukan proses invers sehingga pada akhirnya file tersebut bisa terbuka.
+syntax di atas adalah proses perulangan, yang mana syntax tersebut akan mengecek semua file bertipe .jpg, kemudian karena file tersebut tidak bisa dibuka karena di enkripsi maka harus dilakukan proses dengan menggunakan syntax base64, tetapi hal itu belum cukup karena file masih belum bisa terbuka karena konfigurasi file tersebut ketika di cek melalui hexdump masih ada yang salah sehingga perlu dilakukan proses invers sehingga pada akhirnya file tersebut bisa terbuka.
 
+```
 14 14 14 2 5 /bin/bash /home/adam/SoalShift_modul1_C8/Nomer 1.sh
+```
+
+Syntax di atas merupakan syntax pada crontab
 
 
 # Nomor 2
 ## A
+```
 BEGIN{
    arr[0]=0;
    jumlah[0]=0;
@@ -61,14 +66,18 @@ END{
    }
    print negara;
 }
+```
 
    Pada soal no.2 a ini, kami menggunakan 2 array dengan jumlah indeks sama, array pertama untuk menyimpan nama negara yang berbeda kemudian array kedua untuk menyimpan total hasil penjualan (berada di kolom ke 10 atau $10) dari negara yang berada pada indeks yang sama di array pertama dan juga perlu dilakukan pengecekan bahwa penjualan tersebut harus pada tahun 2012 yang mana data mengenai ini berada di kolom ke 7($7), sementara untuk nama negara ada di kolom 1 atau pada syntax di atas ditulis $1. Setelah itu pada bagian end akan dilakukan pengecekan jumlah penjualan masing2 negara melalui array kedua dan kemudian indeks yang menyimpan data penjualan terbanyak tersebut akan mencetak nama negara di array pertama dengan indeks yang sama.
 
-awk -F ',' -f 1_2a.awk WA_Sales_Products_2012-14.csv --> syntax ini di jalankan di terminal. -F ',' tanda koma yang diapit 2 tanda petik tunggal ini dan juga _F tersebut agar tanda koma yang memisahkan setiap kolom pada file bertipe .csv bisa terbaca sebagai space. 
+```
+awk -F ',' -f 1_2a.awk WA_Sales_Products_2012-14.csv
+```
+Syntax di atas di jalankan di terminal. ```-F ',' ``` tanda koma yang diapit 2 tanda petik tunggal ini dan juga _F tersebut agar tanda koma yang memisahkan setiap kolom pada file bertipe .csv bisa terbaca sebagai space. 
 
 ## B
 
-BEGIN{
+```BEGIN{
    arr[0]=0;
    jumlah[0]=0;
    i=0;
@@ -98,10 +107,11 @@ END{
       print jumlah[k] " " arr[k];
    }
 }
+```
 
    Penjelasannya sama seperti pada bagian a, perbedaannya hanya pada array pertama yang mana di bagian a menyimpan nama negara, sementara untuk bagian b ini digunakan untuk menyimpan nama-nama product line (berada pada kolom ke 4 atau $4) yang berbeda yang terdapat pada negara United States (hasil dari proses pada bagian a). Sehingga untuk menyimpan nama-nama product line harus dilakukan pengecekan pada kolom ke 4 atau $4 dan ada penambahan pembanding di bagian if yaitu nama negara harus sama dengan United States. Kemudian, di bagian END dilakukan proses pencetakan kedua array tersebut yang bersebelahan antara array pertama dan kedua yang memiliki indeks yang sama.
 
-awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s --> syntax ini dijalankan di terminal untuk melakukan proses pengurutan secara ascending berdasarkan kolom yang berisi number (sort -n) dan kemudian di reverse agar menjadi descending (-r) dan kemudian (head -n 3s) syntax di samping berfungsi agar hanya tercetak 3 data yang berada di baris teratas.
+```awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s ``` --> syntax ini dijalankan di terminal untuk melakukan proses pengurutan secara ascending berdasarkan kolom yang berisi number (sort -n) dan kemudian di reverse agar menjadi descending (-r) dan kemudian (head -n 3s) syntax di samping berfungsi agar hanya tercetak 3 data yang berada di baris teratas.
 
 ## C
 BEGIN{
