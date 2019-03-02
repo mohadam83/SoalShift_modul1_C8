@@ -18,7 +18,7 @@ a=`expr $a + 1`
 done
 ```
 
-syntax di atas adalah proses perulangan, yang mana syntax tersebut akan mengecek semua file bertipe .jpg, kemudian karena file tersebut tidak bisa dibuka karena di enkripsi maka harus dilakukan proses dengan menggunakan syntax base64, tetapi hal itu belum cukup karena file masih belum bisa terbuka karena konfigurasi file tersebut ketika di cek melalui hexdump masih ada yang salah sehingga perlu dilakukan proses invers sehingga pada akhirnya file tersebut bisa terbuka.
+<div class="text-justify"> Syntax di atas adalah proses perulangan, yang mana syntax tersebut akan mengecek semua file bertipe .jpg, kemudian karena file tersebut tidak bisa dibuka karena di enkripsi maka harus dilakukan proses dengan menggunakan syntax base64, tetapi hal itu belum cukup karena file masih belum bisa terbuka karena konfigurasi file tersebut ketika di cek melalui hexdump masih ada yang salah sehingga perlu dilakukan proses invers sehingga pada akhirnya file tersebut bisa terbuka. </div>
 
 ```
 14 14 14 2 5 /bin/bash /home/adam/SoalShift_modul1_C8/Nomer 1.sh
