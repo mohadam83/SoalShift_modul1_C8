@@ -1,6 +1,6 @@
 # Nomor 1
-
-```/#!/bin/bash
+```
+/#!/bin/bash
 
 /#xdg-open "nature&
 unzip /home/adam/SoalShift_modul1_C8/nature.zip -d /home/adam/Downloads
