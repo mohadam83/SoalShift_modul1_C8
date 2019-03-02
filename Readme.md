@@ -261,6 +261,8 @@ cara :
     3. Setelah itu simpanlah file syslog tersebut kedalam folder yang diinginkan. Contoh : perintah >> /home/adam/SoalShift_modul1_C8/no5.log
     4. Buat cron job dengan perintah crontab -e dan aturlah waktunya seperti berikut : s2-30/6 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/no5.sh
 
+```2-30/6 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/no5.sh``` --> Syntax pada crontab
+
 Kendala yang dialami yaitu terletak pada nomer 5, awalnya kami hanya menduga jika yg bentuk lain dari cron karena case sensitive hanya CRON, seharusnya ada kemungkinan lain seperti crON, CRon dan lain sebagainya. Sehingga kami menambahkan syntax ```tolower($0) ~``` agar bisa mendeteksi semua kemungkinan penulisan cron yang dianggap sama sesuai pengertian case sensitive.
 
 
