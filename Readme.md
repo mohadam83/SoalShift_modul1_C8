@@ -1,4 +1,4 @@
-# Soal No. 1
+# Nomor 1
 
 /#!/bin/bash
 
@@ -18,8 +18,8 @@ syntax di atas adalah proses perulangan, yang mana syntax di atas akan mengecek 
 14 14 14 2 5 /bin/bash /home/adam/SoalShift_modul1_C8/Nomer 1.sh
 
 
-# Soal No. 2
-## 2a
+# Nomor 2
+## A
 BEGIN{
    arr[0]=0;
    jumlah[0]=0;
@@ -61,7 +61,7 @@ END{
 
 awk -F ',' -f 1_2a.awk WA_Sales_Products_2012-14.csv --> syntax ini di jalankan di terminal. -F ',' tanda koma yang diapit 2 tanda petik tunggal ini dan juga _F tersebut agar tanda koma yang memisahkan setiap kolom pada file bertipe .csv bisa terbaca sebagai space. 
 
-## 2b
+## B
 
 BEGIN{
    arr[0]=0;
@@ -98,7 +98,7 @@ END{
 
 awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s --> syntax ini dijalankan di terminal untuk melakukan proses pengurutan secara ascending berdasarkan kolom yang berisi number (sort -n) dan kemudian di reverse agar menjadi descending (-r) dan kemudian (head -n 3s) syntax di samping berfungsi agar hanya tercetak 3 data yang berada di baris teratas.
 
-## 2c
+## C
 BEGIN{
    arr[0]=0;
    jumlah[0]=0;
@@ -134,7 +134,7 @@ END{
 
 awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s --> penjelasan syntax ini sama seperti pada bagian b sebelumnya.
 
-# Soal No. 3
+# Nomor 3
 Script :
 
 pswd=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
@@ -161,7 +161,7 @@ cara :
 
 
 
-# Soal No. 4
+# Nomor 4
 #!/bin/bash
 
 convert() {
@@ -222,7 +222,7 @@ printf '%s\n' "$var"
 
 perbedaan antara encode dan decode hanya terletak pada syntax else yaitu menukar posisi yang mana di bagian setelah tr (translate) jika di bagian encode di awali dengan rentang yang pasti yaitu a-zA-Z baru hasil perubahannya, sementara pada bagian decode a-zA-Z berada di bagian belakang.
 
-# Soal No. 5
+# Nomor 5
 Script :
 
 awk '(/cron/ || /CRON/) && (!/sudo/) && (NF < 13) {print}' /var/log/syslog >> /home/adam/SoalShift_modul1_C8/no5.log
