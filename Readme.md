@@ -73,11 +73,12 @@ END{
 ```
 awk -F ',' -f 1_2a.awk WA_Sales_Products_2012-14.csv
 ```
-Syntax di atas di jalankan di terminal. ```-F ',' ``` tanda koma yang diapit 2 tanda petik tunggal ini dan juga _F tersebut agar tanda koma yang memisahkan setiap kolom pada file bertipe .csv bisa terbaca sebagai space. 
+Syntax di atas di jalankan di terminal. ```-F ','``` tanda koma yang diapit 2 tanda petik tunggal ini dan juga -F tersebut agar tanda koma yang memisahkan setiap kolom pada file bertipe .csv bisa terbaca sebagai space. 
 
 ## B
 
-```BEGIN{
+```
+BEGIN{
    arr[0]=0;
    jumlah[0]=0;
    i=0;
@@ -111,9 +112,10 @@ END{
 
    Penjelasannya sama seperti pada bagian a, perbedaannya hanya pada array pertama yang mana di bagian a menyimpan nama negara, sementara untuk bagian b ini digunakan untuk menyimpan nama-nama product line (berada pada kolom ke 4 atau $4) yang berbeda yang terdapat pada negara United States (hasil dari proses pada bagian a). Sehingga untuk menyimpan nama-nama product line harus dilakukan pengecekan pada kolom ke 4 atau $4 dan ada penambahan pembanding di bagian if yaitu nama negara harus sama dengan United States. Kemudian, di bagian END dilakukan proses pencetakan kedua array tersebut yang bersebelahan antara array pertama dan kedua yang memiliki indeks yang sama.
 
-```awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s ``` --> syntax ini dijalankan di terminal untuk melakukan proses pengurutan secara ascending berdasarkan kolom yang berisi number (sort -n) dan kemudian di reverse agar menjadi descending (-r) dan kemudian (head -n 3s) syntax di samping berfungsi agar hanya tercetak 3 data yang berada di baris teratas.
+```awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s ``` --> syntax ini dijalankan di terminal untuk melakukan proses pengurutan secara ascending berdasarkan kolom yang berisi number ```(sort -n)``` dan kemudian di reverse agar menjadi descending ```(-r)``` dan kemudian ```(head -n 3s)``` syntax di samping berfungsi agar hanya tercetak 3 data yang berada di baris teratas.
 
 ## C
+```
 BEGIN{
    arr[0]=0;
    jumlah[0]=0;
@@ -144,14 +146,15 @@ END{
       print jumlah[k] " " arr[k];
    }
 }
+```
 
    Untuk bagian c ini tidak berbeda jauh dengan bagian b, hanya saja berbeda di bagian if dengan menambahkan syarat baru yaitu berupa product line yang muncul di bagian b dan juga array pertama yang awalnya untuk menyimpan product line diubah menjadi menyimpan data di kolom product yaitu di kolom 6 ($6).
 
-awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s --> penjelasan syntax ini sama seperti pada bagian b sebelumnya.
+```awk -F ',' -f 1_2b.awk WA_Sales_Products_2012-14.csv | sort -n -r | head -n 3s``` --> penjelasan syntax ini sama seperti pada bagian b sebelumnya.
 
 # Nomor 3
 Script :
-
+```
 pswd=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
 
 check=0
@@ -162,6 +165,7 @@ number="$check"
 done
 
 echo "$pswd" >> "password$number.txt"
+```
 
 cara :
 
@@ -177,50 +181,56 @@ cara :
 
 
 # Nomor 4
+```
 #!/bin/bash
 
 convert() {
-    printf "\\$(printf "%03o" "$1")" --> untuk mengonversi bilangan ke character
+    printf "\\$(printf "%03o" "$1")" 
 }
+``` 
+Syntax di atas untuk mengonversi bilangan ascii ke character
 
-hour=`date +%H` --> berfungsi untuk mengakses jam terkini
-fname=`date +"%H:%M %d-%m-%Y"` --> berfungsi untuk menyimpan informasi mengenai waktu dan tanggal sebagai nama file nantinya
-log=`cat /var/log/syslog` --> untuk menyimpan file yang ditampilkan oleh syntax cat
+```hour=`date +%H` ```--> berfungsi untuk mengakses jam terkini
+```fname=`date +"%H:%M %d-%m-%Y"` ``` --> berfungsi untuk menyimpan informasi mengenai waktu dan tanggal sebagai nama file nantinya
+```log=`cat /var/log/syslog` ``` --> untuk menyimpan file yang ditampilkan oleh syntax cat
 
-lwer=$(($hour + 65)) --> untuk mengubah huruf lama menjadi huruf baru setelah ditambah dengan jam terkini
+```lwer=$(($hour + 65))``` --> untuk mengubah huruf lama menjadi huruf baru setelah ditambah dengan jam terkini
 
-firstChar=`convert $lwer` --> sebagai batas awal sampai z 
-lastChar=`convert $(($lwer-1))` --> sebagai batas akhir dari a
+```firstChar=`convert $lwer` ``` --> sebagai batas awal sampai z 
+```lastChar=`convert $(($lwer-1))` ``` --> sebagai batas akhir dari a
 
 karena disini kami menggunakan 2 rentang seperti yang tampak pada variabel var di bawah
 
-if [ $lwer == 65 ]
+```if [ $lwer == 65 ]
 then
-    var=`printf '%s' "$log"` --> proses mencetak isi dari variabel log tanpa perlu melakukan perubahan karena nilai variabel hour = 0
+    var=`printf '%s' "$log"` 
 else
     var=`printf '%s' "$log" | tr a-zA-Z ${firstChar,,}-za-${lastChar,,}$firstChar-ZA-$lastChar` 
+fi    
+```
+--> Syntax pada bagian if pertama merupakan proses mencetak isi dari variabel log tanpa perlu melakukan perubahan karena nilai variabel hour = 0
+--> sSyntax pada bagian else di atas untuk menyimpan character yang akan dicetak setelah konversi huruf awal menjadi huruf baru setelah ditambah dengan nilai jam. karena menggunakan nilai 65 yang merupakan nilai dari ascii A, maka untuk mengubah huruf lowercase cukup dengan menggunakan tanda ,, (koma double) setelah variabel firstChar atau lastChar, seperti pada syntax di atas
 
---> syntax baris di atas untuk menyimpan character yang akan dicetak setelah konversi huruf awal menjadi huruf baru setelah ditambah dengan nilai jam. karena menggunakan nilai 65 yang merupakan nilai dari ascii A, maka untuk mengubah huruf lowercase cukup dengan menggunakan tanda ,, (koma double) setelah variabel firstChar atau lastChar, seperti pada syntax di atas
-
-fi
-
-printf '%s\n' "$var" > "$fname".txt --> mencetak isi variabel var dan disimpan ke file dengan nama yang sesuai pada variabel fname
+```printf '%s\n' "$var" > "$fname".txt``` --> mencetak isi variabel var dan disimpan ke file dengan nama yang sesuai pada variabel fname
 
 Syntax di atas untuk proses encode
 
-0 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/nomer 4.sh
+```0 * * * * /bin/bash /home/adam/SoalShift_modul1_C8/nomer 4.sh``` --> Syntax pada crontab
 
+```
 #!/bin/bash
 
 convert() {
     printf "\\$(printf "%03o" "$1")"
 }
-
+```
+Syntax di atas untuk mengonversi bilangan ascii ke character
+```
 hour=`echo $1 | cut -d':' -f 1`
 log=`cat "$1$2"`
-
+```
 2 baris syntax di atas untuk mengakses nama file yang akan kita decode lagi
-
+```
 lwer=$(($hour + 65))
 
 firstChar=`convert $lwer`
@@ -234,13 +244,15 @@ else
 fi
 
 printf '%s\n' "$var"
-
+```
 perbedaan antara encode dan decode hanya terletak pada syntax else yaitu menukar posisi yang mana di bagian setelah tr (translate) jika di bagian encode di awali dengan rentang yang pasti yaitu a-zA-Z baru hasil perubahannya, sementara pada bagian decode a-zA-Z berada di bagian belakang.
 
 # Nomor 5
 Script :
 
+```
 awk '(/cron/ || /CRON/) && (!/sudo/) && (NF < 13) {print}' /var/log/syslog >> /home/adam/SoalShift_modul1_C8/no5.log
+```
 
 cara :
 
